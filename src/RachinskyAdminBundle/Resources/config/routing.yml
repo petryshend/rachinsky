@@ -1,0 +1,3 @@
+rachinsky_admin_homepage:
+    path:     /
+    defaults: { _controller: RachinskyAdminBundle:Default:index }
