@@ -3,11 +3,12 @@
 namespace RachinskyAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  */
-class AnswerUnits {
+class AnswerUnit {
 
     /**
      * @ORM\Column(type="integer")
@@ -18,6 +19,7 @@ class AnswerUnits {
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $unit;
 
@@ -35,7 +37,7 @@ class AnswerUnits {
      * Set unit
      *
      * @param string $unit
-     * @return AnswerUnits
+     * @return AnswerUnit
      */
     public function setUnit($unit)
     {

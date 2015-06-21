@@ -58,4 +58,44 @@ class Problem
     {
         return $this->text;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add answers
+     *
+     * @param \RachinskyAdminBundle\Entity\Answer $answers
+     * @return Problem
+     */
+    public function addAnswer(\RachinskyAdminBundle\Entity\Answer $answers)
+    {
+        $this->answers[] = $answers;
+
+        return $this;
+    }
+
+    /**
+     * Remove answers
+     *
+     * @param \RachinskyAdminBundle\Entity\Answer $answers
+     */
+    public function removeAnswer(\RachinskyAdminBundle\Entity\Answer $answers)
+    {
+        $this->answers->removeElement($answers);
+    }
+
+    /**
+     * Get answers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
 }

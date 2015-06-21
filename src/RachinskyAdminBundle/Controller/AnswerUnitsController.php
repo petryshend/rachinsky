@@ -2,6 +2,8 @@
 
 namespace RachinskyAdminBundle\Controller;
 
+use RachinskyAdminBundle\Entity\AnswerUnit;
+use RachinskyAdminBundle\Form\Type\UnitType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,7 +16,23 @@ class AnswerUnitsController extends Controller {
 
     public function newAction(Request $request)
     {
-        return $this->render('admin/answer-units/new.html.twig');
+        $unit = new AnswerUnit();
+        $form = $this->createForm(new UnitType(), $unit);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($unit);
+            $em->flush();
+
+            return $this->redirectToRoute('rachinsky_admin_answer_units_list');
+        }
+
+        return $this->render(
+            'admin/answer-units/new.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
     }
 
     public function editAction(Request $request, $id)

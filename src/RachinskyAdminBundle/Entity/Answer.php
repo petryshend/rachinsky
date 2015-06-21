@@ -27,9 +27,9 @@ class Answer {
     protected $problem;
 
     /**
-     * @ORM\OneToOne(targetEntity="AnswerUnits")
+     * @ORM\OneToOne(targetEntity="AnswerUnit")
      */
-    protected $answerUnits;
+    protected $AnswerUnit;
 
     /**
      * Get id
@@ -88,25 +88,25 @@ class Answer {
     }
 
     /**
-     * Set answerUnits
+     * Set AnswerUnit
      *
-     * @param \RachinskyAdminBundle\Entity\AnswerUnits $answerUnits
+     * @param \RachinskyAdminBundle\Entity\AnswerUnit $AnswerUnit
      * @return Answer
      */
-    public function setAnswerUnits(\RachinskyAdminBundle\Entity\AnswerUnits $answerUnits = null)
+    public function setAnswerUnit(\RachinskyAdminBundle\Entity\AnswerUnit $AnswerUnit = null)
     {
-        $this->answerUnits = $answerUnits;
+        $this->AnswerUnit = $AnswerUnit;
 
         return $this;
     }
 
     /**
-     * Get answerUnits
+     * Get AnswerUnit
      *
-     * @return \RachinskyAdminBundle\Entity\AnswerUnits 
+     * @return \RachinskyAdminBundle\Entity\AnswerUnit 
      */
-    public function getAnswerUnits()
+    public function getAnswerUnit()
     {
-        return $this->answerUnits;
+        return $this->AnswerUnit;
     }
 }
