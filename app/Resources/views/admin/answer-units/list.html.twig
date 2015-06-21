@@ -1,5 +1,25 @@
 {% extends ':admin:base.html.twig' %}
 
 {% block body %}
-  THis is answer units list
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Unit</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for unit in units %}
+        <tr>
+          <td>{{ unit.id }}</td>
+          <td>{{ unit.unit }}</td>
+          <td>
+            <a href="{{ path('rachinsky_admin_answer_units_edit', {'id': unit.id}) }}">Edit</a> |
+            <a href="{{ path('rachinsky_admin_answer_units_delete', {'id': unit.id}) }}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
