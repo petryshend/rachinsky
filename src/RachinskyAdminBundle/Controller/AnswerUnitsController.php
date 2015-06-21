@@ -72,6 +72,30 @@ class AnswerUnitsController extends Controller {
 
     public function deleteAction(Request $request, $id)
     {
-        return $this->render('admin/answer-units/delete.html.twig', ['id' => $id]);
+        $unit = $this->getDoctrine()
+            ->getRepository('RachinskyAdminBundle:AnswerUnit')
+            ->find($id);
+        if (!$unit) {
+            throw new \Exception('AnswerUnit with that ID does not exist');
+        }
+        $form = $this->createFormBuilder($unit)
+            ->add('delete', 'submit', ['label' => 'Delete Unit'])
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($unit);
+            $em->flush();
+
+            return $this->redirectToRoute('rachinsky_admin_answer_units_list');
+        }
+
+        return $this->render(
+            'admin/answer-units/delete.html.twig',
+            [
+                'unit' => $unit,
+                'form' => $form->createView(),
+            ]
+        );
     }
 }
