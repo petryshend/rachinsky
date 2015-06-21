@@ -1,3 +1,19 @@
 rachinsky_admin_homepage:
     path:     /admin
     defaults: { _controller: RachinskyAdminBundle:Default:index }
+
+rachinsky_admin_answer_units_list:
+    path:     /admin/answer-units
+    defaults: { _controller: RachinskyAdminBundle:AnswerUnits:list }
+
+rachinsky_admin_answer_units_new:
+    path:     /admin/answer-units/new
+    defaults: { _controller: RachinskyAdminBundle:AnswerUnits:new }
+
+rachinsky_admin_answer_units_edit:
+    path:     /admin/answer-units/edit/{id}
+    defaults: { _controller: RachinskyAdminBundle:AnswerUnits:edit }
+
+rachinsky_admin_answer_units_delete:
+    path:     /admin/answer-units/delete/{id}
+    defaults: { _controller: RachinskyAdminBundle:AnswerUnits:delete }
