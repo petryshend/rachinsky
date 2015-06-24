@@ -17,6 +17,11 @@ class Problem
     protected $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $index;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $text;
@@ -97,5 +102,28 @@ class Problem
     public function getAnswers()
     {
         return $this->answers;
+    }
+
+    /**
+     * Set index
+     *
+     * @param integer $index
+     * @return Problem
+     */
+    public function setIndex($index)
+    {
+        $this->index = $index;
+
+        return $this;
+    }
+
+    /**
+     * Get index
+     *
+     * @return integer 
+     */
+    public function getIndex()
+    {
+        return $this->index;
     }
 }
