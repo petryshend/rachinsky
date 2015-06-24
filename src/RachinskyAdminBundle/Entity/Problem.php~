@@ -17,6 +17,11 @@ class Problem
     protected $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $index;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $text;

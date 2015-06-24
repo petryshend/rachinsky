@@ -17,3 +17,19 @@ rachinsky_admin_answer_units_edit:
 rachinsky_admin_answer_units_delete:
     path:     /admin/answer-units/delete/{id}
     defaults: { _controller: RachinskyAdminBundle:AnswerUnits:delete }
+
+rachinsky_admin_problems_list:
+    path:     /admin/problems
+    defaults: { _controller: RachinskyAdminBundle:Problems:list }
+
+rachinsky_admin_problems_new:
+    path:     /admin/problems/new
+    defaults: { _controller: RachinskyAdminBundle:Problems:new }
+
+rachinsky_admin_problems_edit:
+    path:     /admin/problems/edit/{id}
+    defaults: { _controller: RachinskyAdminBundle:Problems:edit }
+
+rachinsky_admin_problems_delete:
+    path:     /admin/problems/delete/{id}
+    defaults: { _controller: RachinskyAdminBundle:Problems:delete }
